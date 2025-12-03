@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/calculate_56dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.png" type="image/x-icon">
+</head>
+<body>
+    <div class="root">
+        <div class="result">
+            <p id="secondary"></p>
+            <p id="main"></p>
+        </div>
+        <div class="inputs-wrapper">
+                <button id="deleteAllButton">AC</button>
+                <button id="toggleSignButton">+/-</button>
+                <button id="backspaceButton">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="var(--text-main)"><path d="M450.67-324 560-433.33 669.33-324l47.34-47.33-110-108.67 108.66-108.67L668-636 560-526.67 450.67-636l-47.34 47.33 110 108.67-110 108.67L450.67-324Zm-97.34 164q-15.83 0-30-7.08-14.16-7.09-23.33-19.59L80-480l219.33-293.33q9.17-12.5 23.34-19.59 14.16-7.08 30-7.08H814q27.5 0 47.08 19.58 19.59 19.59 19.59 47.09v506.66q0 27.5-19.59 47.09Q841.5-160 814-160H353.33Zm-190-320 190 253.33H814v-506.66H353.33L163.33-480ZM584-480Z"/></svg>
+                </button>
+                <button data-operator="÷" class="operator-button">÷</button>
+                <button data-value="1" class="number-button">1</button>
+                <button data-value="2" class="number-button">2</button>
+                <button data-value="3" class="number-button">3</button>
+                <button data-operator="×" class="operator-button">×</button>
+                <button data-value="4" class="number-button">4</button>
+                <button data-value="5" class="number-button">5</button>
+                <button data-value="6" class="number-button">6</button>
+                <button data-operator="-"class="operator-button">-</button>
+                <button data-value="7"class="number-button">7</button>
+                <button data-value="8"class="number-button">8</button>
+                <button data-value="9"class="number-button">9</button>
+                <button data-operator="+"class="operator-button">+</button>
+                <button data-value="." class="number-button">.</button>
+                <button data-value="0" class="number-button">0</button>
+                <button id="equalButton">=</button>
+        </div>
+    </div>
+    <p class="author"><br><a href="https://github.com/AhmedMarwan5" target="_blank">AhmedMarwan5</a> / <a href="https://github.com/AhmedMarwan5/calculator" target="_blank">calculator</a></p>
+    <script src="script.js"></script>
+</body>
+</html>

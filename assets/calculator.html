@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-family: system-ui, Ubuntu, sans-serif;
+            font-weight: 700;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        div {
+            text-align: center;
+            height: fit-content;
+        }
+
+        p {
+            font-size: 60px;
+            width: 99%;
+            margin: auto;
+            height: 15vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            font-size: 50px;
+            width: 20%;
+            height: 12vh;
+            margin: 5px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+
+        div {
+            margin: auto;
+        }
+        #equal{
+            background: rgb(0, 195, 195);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p id="display"></p>
+        <button onclick="deleteAll()">AC</button>
+        <button onclick="deleteOneNumber()">C</button>
+        <button onclick="add('+')">+</button>
+        <button onclick="add('-')">-</button>
+        <br>
+        <button onclick="add(1)">1</button>
+        <button onclick="add(2)">2</button>
+        <button onclick="add(3)">3</button>
+        <button onclick="add('×')">×</button>
+        <br>
+        <button onclick="add(4)">4</button>
+        <button onclick="add(5)">5</button>
+        <button onclick="add(6)">6</button>
+        <button onclick="add('÷')">÷</button>
+        <br>
+        <button onclick="add(7)">7</button>
+        <button onclick="add(8)">8</button>
+        <button onclick="add(9)">9</button>
+        <button onclick="add('%')">%</button>
+        <br>
+        <button onclick="add('(')">(</button>
+        <button onclick="add(0)">0</button>
+        <button onclick="add(')')">)</button>
+        <button onclick="add('.')">.</button>
+        <br>
+        <button id="equal" style="width: 41.3%;" onclick="getResultOut()">=</button>
+    </div>
+    <audio id="audio" src="y2mate.com - Click  Sound Effect HD.mp3"></audio>
+    <script>
+        let display = document.getElementById("display")
+        function deleteTheZeroInTheFirst() {
+            if (display.innerHTML == 0) {
+                display.innerHTML = ""
+            }
+        }
+        function add(index) {
+            deleteTheZeroInTheFirst()
+            if(index !== 0){
+                display.innerHTML += index
+            }
+            if (index == 0) {
+                if (display.innerHTML !== "") {
+                    display.innerHTML += 0
+                }
+            }
+            console.clear()
+        }
+        function getResultOut() {
+            deleteTheZeroInTheFirst()
+            console.clear()
+            if (display.innerHTML !== "") {
+                let inner = display.innerHTML.replace("×", "*").replace("÷", "/")
+                display.innerHTML = eval(inner)
+            }
+        }
+        function deleteOneNumber() {
+            deleteTheZeroInTheFirst()
+            display.innerHTML = display.innerText.slice(0, -1)
+            console.clear()
+        }
+        function deleteAll() {
+            deleteTheZeroInTheFirst()
+            display.innerHTML = ""
+            console.clear()
+        }
+        document.addEventListener("keydown", (event) => {
+            console.log(event)
+            for(let i = -1; i <= 9;i++){
+                if(event.key == i){
+                    add(i)
+                }
+            }
+            if (event.code == "Equal") {
+                add("+")
+            }
+            else if (event.key == "-") {
+                add("-")
+            }
+            else if (event.key == "*") {
+                add("×")
+            }
+            else if (event.key == "/") {
+                add("÷")
+            }
+            else if (event.key == "%") {
+                add("%")
+            }
+            else if (event.key == ".") {
+                add(".")
+            }
+            else if (event.key == "Backspace") {
+                deleteOneNumber()
+            }
+            else if (event.key == "Delete") {
+                deleteOneNumber()
+            }
+            else if (event.key == "c") {
+                deleteAll()
+            }
+            else if (event.key == "Enter") {
+                getResultOut()
+            }
+            else if (event.key == "(") {
+                add("(")
+            }
+            else if (event.key == ")") {
+                add(")")
+            }
+        })
+            </script>
+</body>
+
+</html>
