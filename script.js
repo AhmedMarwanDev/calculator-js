@@ -14,32 +14,28 @@ let previousValue = "";
 let result = 0;
 let operator = "";
 
-showCurrentValue();
+render();
 
-function showPreviousValue () {
-    secondaryOutput.textContent = `${previousValue} ${operator}`;
-};
-
-function showCurrentValue () {
+function render () {
     mainOutput.textContent = currentValue;
-};
+    secondaryOutput.textContent = `${previousValue} ${operator}`;
+}
 
 function toggleSign () {
     if (currentValue.replaceAll(".", "") == "") return;
     currentValue = (currentValue * -1).toString();
-    showCurrentValue();
-    showPreviousValue();
+    render();
 };
 
 toggleSignButton.addEventListener("click", toggleSign);
 
 function addValue (value) {
     if (value == "." && currentValue.includes(".")) return;
-    if (value == "0" && currentValue == "") return;
+    if (value == "0" && currentValue == "0") return;
     if (currentValue.replaceAll(".", "").length >= 16) return;
 
     currentValue += value;
-    showCurrentValue();
+    render();
 };
 
 inputsWrapper.addEventListener("pointerdown", (e) => {
@@ -56,12 +52,10 @@ function setOperator (value) {
         operator = value;
         previousValue = currentValue;
         currentValue = "";
-        showPreviousValue();
-        showCurrentValue();
+        render();
     } else if (previousValue !== "") {
         operator = value;
-        showPreviousValue();
-        showCurrentValue();
+        render();
     };
 };
 
@@ -90,8 +84,7 @@ function calculate () {
         currentValue = result;
         previousValue = "";
         operator = "";
-        showPreviousValue();
-        showCurrentValue();
+        render();
     };
 };
 
@@ -100,16 +93,14 @@ function deleteAll () {
     previousValue = "";
     result = "";
     operator = "";
-    showPreviousValue();
-    showCurrentValue();
+    render();
 };
 
 deleteAllButton.addEventListener("click", deleteAll);
 
 function backspace () {
     currentValue = currentValue.slice(0, -1);
-    showPreviousValue();
-    showCurrentValue();
+    render();
 };
 
 backspaceButton.addEventListener("click", backspace);
