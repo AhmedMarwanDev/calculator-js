@@ -79,13 +79,12 @@ function operation(first, second, operator) {
 equalButton.addEventListener("click", calculate);
 
 function calculate () {
-    if(currentValue !== "" && previousValue !== "" && operator !== ""){
-        result = operation(previousValue, currentValue, operator);
-        currentValue = result;
-        previousValue = "";
-        operator = "";
-        render();
-    };
+    if (currentValue == "" || previousValue == "" || operator == "") return;
+    result = operation(previousValue, currentValue, operator);
+    currentValue = result;
+    previousValue = "";
+    operator = "";
+    render();
 };
 
 function deleteAll () {
