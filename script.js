@@ -14,7 +14,7 @@ let operator = "";
 function addValue (value) {
     if (value == "." && currentValue.includes(".")) return;
     if (value == "0" && currentValue == "0") return;
-    if (currentValue.replaceAll(".", "").length >= 16) return;
+    if (currentValue.replaceAll(".", "").length >= 15) return;
 
     currentValue += value;
     render();
