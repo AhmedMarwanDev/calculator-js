@@ -82,8 +82,10 @@ function backspace () {
 };
 
 function render () {
-    mainOutput.textContent = currentValue;
-    secondaryOutput.textContent = `${previousValue} ${operator}`;
+    const formatedCurrentValue = currentValue == "" ? "" : (+currentValue).toLocaleString("en-US");
+    const formatedPreviousValue = previousValue == "" ? "" : (+previousValue).toLocaleString("en-US");
+    mainOutput.textContent = formatedCurrentValue;
+    secondaryOutput.textContent = `${formatedPreviousValue} ${operator}`;
 };
 
 render();
