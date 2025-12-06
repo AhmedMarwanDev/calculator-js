@@ -60,7 +60,8 @@ function calculate () {
     if (currentValue == "" || previousValue == "" || operator == "") return;
     if (parseFloat(currentValue) == 0 && operator == "÷") return;
     result = operation(previousValue, currentValue, operator);
-    result = Math.round(result * 1e+10) / 1e+10;
+    // checks if the result is an integer or not, if not, it applies the rounding method, if its an integer, it doesn't
+    result = !Number.isInteger(result) ? Math.round(result * 1e+10) / 1e+10 : result;
     currentValue = result.toString();
     previousValue = "";
     operator = "";
