@@ -107,8 +107,8 @@ document.addEventListener("keydown", (e) => {
 
     if(/^[0-9.,]$/.test(key)){
         e.preventDefault();
-        const value = key === "," ? "." : key;
-        addValue(key);
+        const value = key == "," ? "." : key;
+        addValue(value);
         return;
     };
     
