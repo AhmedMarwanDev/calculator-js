@@ -79,10 +79,11 @@ body{
     justify-content: space-between;
     flex-direction: column;
     gap: 0.5rem;
+    text-align: right;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
-    
+
 #secondary {
     font: var(--font-small);
     color: var(--text-muted);
