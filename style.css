@@ -20,7 +20,6 @@
     --bg-equal-hover: hsl(220, 100%, 40%);
     --bg-equal-active: hsl(220, 100%, 45%);
 
-    --bg-author: hsl(0, 0%, 0%);
     
     --text-button: hsl(0, 0%, 100%);
     --text-main: hsl(0, 0%, 100%);
@@ -135,18 +134,11 @@ button:active {
     background-color: var(--bg-equal-active);
 }
 
-.author {
-    font: var(--font-small);
-    font-weight: 400;
-    font-size: 0.75rem;
-    color: var(--text-main);
+.repo {
     position: absolute;
     bottom: 1rem;
     left: 1rem;
-    border-radius: 100px;
-}
-
-.author a {
+    font: var(--font-small);
     font-weight: 600;
     font-size: 1rem;
     line-height: 1.5em;
@@ -154,7 +146,7 @@ button:active {
     text-decoration: none;
 }
 
-.author a:hover {
+.repo:hover {
     text-decoration: underline;
 }
 
