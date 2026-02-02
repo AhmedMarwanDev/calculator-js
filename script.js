@@ -10,11 +10,17 @@ let currentValue = "";
 let previousValue = "";
 let result = 0;
 let operator = "";
+const maxSafeResult = 999_999_999_999_999_999;
+let overflow = false;
 
 function addValue (value) {
+    if (overflow) {
+        currentValue = "";
+        overflow = false;
+    }
     if (value == "." && currentValue.includes(".")) return;
     if (value == "0" && currentValue == "0") return;
-    if (currentValue.replaceAll(".", "").length >= 15) return;
+    if (currentValue.replaceAll(".", "").length >= 9) return;
 
     currentValue += value;
     render();
@@ -55,11 +61,27 @@ function operation(first, second, operator) {
     };
 }; 
 
+function renderOverflow() {
+    mainOutput.textContent = "Too large";
+    secondaryOutput.textContent = "";
+}
+
 function calculate () {
     if (currentValue == "" || previousValue == "" || operator == "") return;
     if (parseFloat(currentValue) == 0 && operator == "÷") return;
+
     result = operation(previousValue, currentValue, operator);
     result = !Number.isInteger(result) ? Math.round(result * 1e+10) / 1e+10 : result;
+    
+    if (Math.abs(result) > maxSafeResult) {
+        overflow = true;
+        currentValue = "";
+        previousValue = "";
+        operator = "";
+        renderOverflow();
+        return;
+    }
+
     currentValue = result.toString();
     previousValue = "";
     operator = "";
@@ -75,6 +97,8 @@ function deleteAll () {
 };
 
 function backspace () {
+    if (overflow) return;
+
     currentValue = currentValue.slice(0, -1);
     render();
 };
