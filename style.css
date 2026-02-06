@@ -24,7 +24,7 @@
     --text-button: hsl(0, 0%, 100%);
     --text-main: hsl(0, 0%, 100%);
     --text-muted: hsl(220, 100%, 70%);
-    --text-author: #ffffff;
+    --text-link-color: hsl(220, 100%, 56%);
 
     --font: normal 400 1.75rem/1em "Outfit", sans-serif;
     --font-small: normal 300 1.25rem/1em "Outfit", sans-serif;
@@ -134,19 +134,23 @@ button:active {
     background-color: var(--bg-equal-active);
 }
 
-.repo {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
+footer {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
     font: var(--font-small);
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 1.5em;
+    text-align: center;
     color: var(--text-main);
-    text-decoration: none;
 }
 
-.repo:hover {
+footer a {
+    font-weight: 500;
+    color: var(--text-link-color);
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: var(--text-color);
     text-decoration: underline;
 }
 
